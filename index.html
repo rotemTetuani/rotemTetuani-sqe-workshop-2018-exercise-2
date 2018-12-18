@@ -1,62 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
 
-        <style>
-            table {
-                width: 100%;
-                height: 100%;
-            }
+    <style>
+        MakGreen{background-color: lawngreen}
+        MarkRed{backgound-color: red}
+        table {
+            width:100%;
+            height: 100%;
+        }
 
-            .textAreaWrapper {
-                width: 100%;
-                height: 80vh;
-            }
+        .textAreaWrapper {
+            width: 100%;
+            height: 80vh;
+        }
 
-            textarea {
-                width: 80%;
-                height: 95%;
-            }
-        </style>
-    </head>
-    <body>
-        <table>
-            <tr>
-                <td>
-                    <div>
-                        <label>Enter code here</label>
-                    </div>
-                </td>
-                <td>
-                    <div>
-                        <label>Parsed code here</label>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="textAreaWrapper">
-                        <textarea id="codePlaceholder" title="Enter code here"></textarea>
-                    </div>
-                </td>
-                <td>
-                    <div class="textAreaWrapper">
-                        <textarea id="parsedCode" title="Parse code"></textarea>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div>
-                        <button id="codeSubmissionButton">Parse code</button>
-                    </div>
-                </td>
-                <td>
-                </td>
-            </tr>
-        </table>
+        textarea {
+            width: 80%;
+            height: 95%;
+        }
 
-        <script src="dist/bundle.js"></script>
-    </body>
+        .sub {
+            -moz-box-shadow: 3px 4px 0px 0px #899599;
+            -webkit-box-shadow: 3px 4px 0px 0px #899599;
+            box-shadow: 3px 4px 0px 0px #899599;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #bab1ba));
+            background: -moz-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+            background: -webkit-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+            background: -o-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+            background: -ms-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+            background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#bab1ba', GradientType=0);
+            background-color: #ededed;
+            -moz-border-radius: 20px;
+            -webkit-border-radius: 20px;
+            border-radius: 20px;
+            border: 1px solid #d6bcd6;
+            display: inline-block;
+            cursor: pointer;
+            color: #3a8a9e;
+            font-family: Arial;
+            font-size: 12px;
+            font-weight: bold;
+            font-style: italic;
+            padding: 2px 9px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #e1e2ed;
+        }
+
+        .sub:hover {
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bab1ba), color-stop(1, #ededed));
+            background: -moz-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+            background: -webkit-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+            background: -o-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+            background: -ms-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+            background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bab1ba', endColorstr='#ededed', GradientType=0);
+            background-color: #bab1ba;
+        }
+
+        .sub:active {
+            position: relative;
+            top: 1px;
+        }
+
+        .eval {
+            -moz-box-shadow: 3px 4px 0px 0px #899599;
+            -webkit-box-shadow: 3px 4px 0px 0px #899599;
+            box-shadow: 3px 4px 0px 0px #899599;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #bab1ba));
+            background: -moz-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+            background: -webkit-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+            background: -o-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+            background: -ms-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+            background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#bab1ba', GradientType=0);
+            background-color: #ededed;
+            -moz-border-radius: 20px;
+            -webkit-border-radius: 20px;
+            border-radius: 20px;
+            border: 1px solid #d6bcd6;
+            display: inline-block;
+            cursor: pointer;
+            color: #3a8a9e;
+            font-family: Arial;
+            font-size: 12px;
+            font-weight: bold;
+            font-style: italic;
+            padding: 2px 9px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #e1e2ed;
+        }
+
+        .eval:hover {
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bab1ba), color-stop(1, #ededed));
+            background: -moz-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+            background: -webkit-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+            background: -o-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+            background: -ms-linear-gradient(top, #bab1ba 5%, #ededed 100%);
+            background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bab1ba', endColorstr='#ededed', GradientType=0);
+            background-color: #bab1ba;
+        }
+
+        .eval:active {
+            position: relative;
+            top: 1px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td>
+            <div>
+                <label>Enter code here</label>
+            </div>
+        </td>
+        <td>
+            <div>
+                <label>Insert input vector in the following format:</label>
+            </div>
+        </td>
+
+    <tr>
+        <td>
+            <div class="textAreaWrapper">
+                        <textarea id="codePlaceholder" title="Enter code here">
+                        </textarea>
+            </div>
+        </td>
+        <td>
+
+            <textarea id="inputVector" title="InsertInput"> {"<parameter_1>":<value_1>,"<parameter_2>":<value_2>,...,"<parameter_n>":<value_n>}
+            </textarea>
+            <div class="textAreaWrapper">
+                <textarea id="parsedCode" title="Parse code">
+                </textarea>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                <button id="sub" herf="#" class="sub">Substitute</button>
+            </div>
+        </td>
+        <td>
+            <div>
+                <button id="eval" href="#" class="eval">Evaluate</button>
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <div>
+                <pre id="coloredCode" title="Enter code here"></pre>
+            </div>
+        </td>
+    </tr>
+</table>
+<script src="dist/bundle.js"></script>
+</body>
 </html>
